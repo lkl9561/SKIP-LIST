@@ -55,8 +55,8 @@ Skip lists are also very space efficient.
   <ul>
     <li>In this case while searching we have to examine every node.</li>
 <li>In this every other node has a pointer to 2 nodes ahead in list. While searching we have to examine atmost ceil(n/2)+1.</li>
-<li>In  this case every 4th node has a pointer to 4 nodes ahead. We dont require more than ceil(n/4)+1 nodes to be examined.</li>
-<li>In this every 2i node has a pointer 2i nodes ahead. Examined nodes would be reduced to order ceil(logn). This implementation can be used for fast searching but insertion and deletion would be impractical in this implementation.(every 2 node has pointer 2 nodes ahead; every 4 node has pointer 4 nodes ahead and so on.) and ith forward pointer of node points to 2i-1 nodes ahead.</li> 
+    <li>In  this case every 4<sup>th</sup> node has a pointer to 4 nodes ahead. We dont require more than ceil(n/4)+1 nodes to be examined.</li>
+    <li>In this every 2<sup>i</sup> node has a pointer 2<sup>i</sup> nodes ahead. Examined nodes would be reduced to order ceil(logn). This implementation can be used for fast searching but insertion and deletion would be impractical in this implementation.(every 2<sup>nd<sup> node has pointer 2 nodes ahead; every 4<sup>th</sup> node has pointer 4 nodes ahead and so on.) and i<sup>th</sup> forward pointer of node points to 2<sup>i-1</sup> nodes ahead.</li> 
       </ul>   
 <p><b>THIS IMPLEMENTATION SHOULD BE USED WHEN ONLY FAST SEARCHING IS TO BE DONE.(NO INSERTION OR DELETION)	</b></p>
  
@@ -64,13 +64,13 @@ Skip lists are also very space efficient.
 Fig 1
  <ul>
    <li>A node having k forward pointers is level k node.</li>
-<li>If every 2i node has  pointer 2i nodes ahead then levels are distributed in a simple pattern :50% are level 1 , 
+   <li>If every 2<sup>i</sup> node has  pointer 2<sup>i</sup> nodes ahead then levels are distributed in a simple pattern :50% are level 1 , 
  25% are level 2 , 12.5% are level 3 and so on.Till now the implementation we have discussed , no randomness is embedded in that.</li>
       </ul>  
  
  <p><b>
 What would happen if levels of nodes were chosen randomly but in same proportions (percentage) discussed above like eg (e).
-In (e) a node’s ith forward pointer instead of pointing 2i-1 nodes ahead , points to next node of level i or higher.
+   In (e) a node’s ith forward pointer instead of pointing 2<sup>i-1</sup> nodes ahead , points to next node of level i or higher.
         Insertion and deletion would require only local modification;
         the level of node is chosen randomly when node is inserted and never change
     <b>  </p>
