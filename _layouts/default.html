@@ -56,7 +56,10 @@ Skip lists are also very space efficient.
     <li>In this case while searching we have to examine every node.</li>
 <li>In this every other node has a pointer to 2 nodes ahead in list. While searching we have to examine atmost ceil(n/2)+1.</li>
     <li>In  this case every 4<sup>th</sup> node has a pointer to 4 nodes ahead. We dont require more than ceil(n/4)+1 nodes to be examined.</li>
-    <li>In this every 2<sup>i</sup> node has a pointer 2<sup>i</sup> nodes ahead. Examined nodes would be reduced to order ceil(logn). This implementation can be used for fast searching but insertion and deletion would be impractical in this implementation.(every 2<sup>nd<sup> node has pointer 2 nodes ahead; every 4<sup>th</sup> node has pointer 4 nodes ahead and so on.) and i<sup>th</sup> forward pointer of node points to 2<sup>i-1</sup> nodes ahead.</li> 
+    <li>In this every 2<sup>i</sup> node has a pointer 2<sup>i</sup> nodes ahead. Examined nodes would be reduced to order ceil(logn). 
+      This implementation can be used for fast searching but insertion and deletion would be impractical in this implementation.
+      (every 2<sup>nd</sup> node has pointer 2 nodes ahead; every 4<sup>th</sup> node has pointer 4 nodes ahead and so on.) 
+      and i<sup>th</sup> forward pointer of node points to 2<sup>i-1</sup> nodes ahead.</li> 
       </ul>   
 <p><b>THIS IMPLEMENTATION SHOULD BE USED WHEN ONLY FAST SEARCHING IS TO BE DONE.(NO INSERTION OR DELETION)	</b></p>
  
