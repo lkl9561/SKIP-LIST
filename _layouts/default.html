@@ -79,7 +79,26 @@ In (e) a node’s ith forward pointer instead of pointing 2<sup>i-1</sup> nodes 
 Insertion and deletion would require only local modification;the level of node is chosen randomly when node is inserted and never change
     </p>   
 
+<p>
+each element is represented by a node having key value pair,the level of which is chosen at random when the node is inserted without
+regard for number of elements in it.level i means i forward pointers(1 to i).We do not need to store the level of node in the node.
+MAX_LEVEL variable represents max level permitted. The level variable represents the current max level in the list or 1 if the list is 	empty. the header of list has forward pointers at levels 1 to MAX_LEVEL. Forward pointers of header above current maximum level of lists 	point to NIL.
+</p>
 
+<p>
+	Understanding of NIL is very impotant
+</p>
+
+<h3>Structure of node</h3>
+
+<pre>
+		typedef struct node
+			{	
+				int key;
+				int value;
+				struct node ** forward;
+			}node;
+</pre> 
     
     
     <footer class="site-footer">
