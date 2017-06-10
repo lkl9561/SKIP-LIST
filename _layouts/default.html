@@ -43,7 +43,7 @@ It means there is an input sequence which consistently gives worst case
   Skip lists have balanced properties similar to search trees built by random insertions , <b>yet do not require insertions to be random. </b>
   Skip lists do not require input sequence to be random , it consults random number generator for balancing.</p> 
  
-  <p><h2>TAG-LINE</h2> : BALANCING A DATA STRUCTURE PROBABILISTICALLY IS EASIER THAN EXPLICITLY MAINTAINING THE BALANCE.</p>
+  <h2>TAG-LINE</h2><p>BALANCING A DATA STRUCTURE PROBABILISTICALLY IS EASIER THAN EXPLICITLY MAINTAINING THE BALANCE.</p>
 <p> 
 Skip lists are also very space efficient. 
   They can be configured to require an average of 1.33 pointers per element (or even less) and
@@ -61,7 +61,7 @@ Skip lists are also very space efficient.
       (every 2<sup>nd</sup> node has pointer 2 nodes ahead; every 4<sup>th</sup> node has pointer 4 nodes ahead and so on.) 
       and i<sup>th</sup> forward pointer of node points to 2<sup>i-1</sup> nodes ahead.</li> 
       </ul>   
-<p><b>THIS IMPLEMENTATION SHOULD BE USED WHEN ONLY FAST SEARCHING IS TO BE DONE.(NO INSERTION OR DELETION)	</b></p>
+<h4>THIS IMPLEMENTATION SHOULD BE USED WHEN ONLY FAST SEARCHING IS TO BE DONE.(NO INSERTION OR DELETION)	</h4>
  
 <img src="https://github.com/rajatjain92/SKIP-LIST/blob/master/1.png">
 Fig 1
