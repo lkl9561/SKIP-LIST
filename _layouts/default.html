@@ -92,13 +92,23 @@ MAX_LEVEL variable represents max level permitted. The level variable represents
 <h3>Structure of node</h3>
 
 <pre>
-		typedef struct node
-			{	
-				int key;
-				int value;
-				struct node ** forward;
-			}node;
+	typedef struct node
+		{	
+			int key;
+			int value;
+			struct node ** forward;
+		}node;
 </pre> 
+	  
+<h3>Structure of list</h3>
+<pre>
+	typedef struct skiplist
+		{
+			int level;
+			int size;
+			struct node * header;
+		}skiplist;
+</pre>
     
     
     <footer class="site-footer">
