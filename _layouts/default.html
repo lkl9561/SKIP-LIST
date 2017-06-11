@@ -140,12 +140,12 @@ end point which is NIL. This node is given value INT_MAX to differentiate from o
 </pre>
 
 <h3>Searching</h3>
-<pr>
+<p>
 we start searching from current max level which is stored in level attribute of list. We search for an element by traversing forward
 pointers that do not overshoot the node containing element being searched. When traversing complete at current level of forward pointers
 , the search moves down to next low level. At the end when no more traversing can be done at level 1 , we will be immediately in front 
 of node that contains that searched element(if it is present). 
-</pr><br>
+</p><br>
 <pre>
 	node * <b>search</b>(skiplist * list,int s_key)
 	{
