@@ -93,7 +93,7 @@ MAX_LEVEL variable represents max level permitted. The level variable represents
 <h3>Structure of node</h3>
 
 <pre>
-	typedef struct node
+	typedef struct <b>node</b>
 		{	
 			int key;
 			int value;
@@ -103,7 +103,7 @@ MAX_LEVEL variable represents max level permitted. The level variable represents
 	  
 <h3>Structure of list</h3>
 <pre>
-	typedef struct skiplist
+	typedef struct <b>skiplist</b>
 		{
 			int level;<b>//current max level</b>
 			int size;<b>//size of list</b>
@@ -121,7 +121,7 @@ end point which is NIL. This node is given value INT_MAX to differentiate from o
 <pre>
 
 	//only called once
-	skiplist * initialise(skiplist *list)
+	skiplist * <b>initialise</b>(skiplist *list)
 	{
 		node * header=(node *)malloc (sizeof(struct node));
 		header->key=INT_MAX;
@@ -141,7 +141,7 @@ end point which is NIL. This node is given value INT_MAX to differentiate from o
 
 <h3>Searching</h3>
 <pre>
-	node * search(skiplist * list,int s_key)
+	node * <b>search</b>(skiplist * list,int s_key)
 	{
 		node * x=list->header;
 		<b>// list->level bcoz it is the max level at present <=MAX_LEVEL </b>
@@ -163,7 +163,7 @@ end point which is NIL. This node is given value INT_MAX to differentiate from o
 <pre>
 <b>//A level is chosen for an element in effect by flipping a coin that has probablility p of coming up heads.</b> 
 <b>//We keeping flipping until we get a "tails" or until the maximum number of levels is reached:</b>
-	int random_level()
+	int <b>random_level</b>()
 	{
 		int new_Level=1;
 		while(rand() < p && new_Level < MAX_LEVEL)
@@ -175,7 +175,7 @@ end point which is NIL. This node is given value INT_MAX to differentiate from o
 
 <h3>Insertion</h3>
 <pre>
-	int insert(skiplist *list,int s_key, int s_value)
+	int <b>insert</b>(skiplist *list,int s_key, int s_value)
 	{
 		int level;
 		node * update[MAX_LEVEL+1];
@@ -217,7 +217,7 @@ end point which is NIL. This node is given value INT_MAX to differentiate from o
 
 <h3>Deletion</h3>
 <pre>
-	int delete(skiplist * list ,int s_key)
+	int <b>delete</b>(skiplist * list ,int s_key)
 	{
 		node * update[MAX_LEVEL+1];
 		node * x=list->header;
@@ -246,7 +246,7 @@ end point which is NIL. This node is given value INT_MAX to differentiate from o
 
 <h3>dumping</h3>
 <pre>
-	static void dump(skiplist *list)
+	static void <b>dump</b>(skiplist *list)
 	 {
     	node *x = list->header;
     	while (x && x->forward[1] != list->header) {
@@ -259,7 +259,7 @@ end point which is NIL. This node is given value INT_MAX to differentiate from o
 
 <h3>Main function</h3>
 <pre>
-	int main() {
+	int <b>main</b>() {
     int arr[] = { 3, 6, 9, 2, 11, 1, 4 }, i;
     skiplist list;
     initialise(&list);
