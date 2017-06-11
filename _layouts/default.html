@@ -96,7 +96,7 @@ MAX_LEVEL variable represents max level permitted. The level variable represents
 		{	
 			int key;
 			int value;
-			struct node ** forward; //pointer to a pack of forward pointers
+			struct node ** forward; <b>//pointer to a pack of forward pointers</b>
 		}node;
 </pre> 
 	  
@@ -104,9 +104,9 @@ MAX_LEVEL variable represents max level permitted. The level variable represents
 <pre>
 	typedef struct skiplist
 		{
-			int level;//current max level
-			int size;//size of list
-			struct node * header;//this is important discussed below
+			int level;<b>//current max level</b>
+			int size;<b>//size of list</b>
+			struct node * header;<b>//this is important discussed below</b>
 		}skiplist;
 </pre>
 <img src="images/2.png" alt="hiii" class="inline"/><br>
@@ -127,12 +127,12 @@ end point which is NIL.This node is given value INT_MAX to differentiate from ot
 		header->forward=(node **)malloc(sizeof(node *)*(MAX_LEVEL+1));
 		list->header=header;
 
-		//forward is pointer to pack of pointers of diff levels 
+		<b>//forward is pointer to pack of pointers of diff levels</b> 
 		for (int i = 0; i <= MAX_LEVEL; ++i)
-			header->forward[i]=list->header;//because starting and end point are same.
+			header->forward[i]=list->header;<b>//because starting and end point are same.</b>
 
-		list->level=1;//empty list has level 1
-		list->size=0;//initially list is empty
+		list->level=1;<b>//empty list has level 1</b>
+		list->size=0;<b>//initially list is empty</b>
 
 		return list;
 	}
@@ -143,14 +143,14 @@ end point which is NIL.This node is given value INT_MAX to differentiate from ot
 	node * search(skiplist * list,int s_key)
 	{
 		node * x=list->header;
-		// list->level bcoz it is the max level at present <=MAX_LEVEL 
+		<b>// list->level bcoz it is the max level at present <=MAX_LEVEL </b>
 		for (int i = list->level; i >= 1; --i)
 			while(x->forward[i]->key < s_key)
 				x=x->forward[i];
-		// x->key < search_key <= x->forward[i]->key
-		// < is when value is not present and = when value is present
+		<b>// x->key < search_key <= x->forward[i]->key</b>
+		<b>// < is when value is not present and = when value is present</b>
 	
-		x=x->forward[1];// 1 because at the end you will be at level 1
+		x=x->forward[1];<b>// 1 because at the end you will be at level 1</b>
 		if(x->key == s_key)
 			return x;
 		else 
@@ -160,8 +160,8 @@ end point which is NIL.This node is given value INT_MAX to differentiate from ot
 
 <h3>Randomisation</h3>
 <pre>
-//A level is chosen for an element in effect by flipping a coin that has probablility p of coming up heads. 
-//We keeping flipping until we get a "tails" or until the maximum number of levels is reached:
+<b>//A level is chosen for an element in effect by flipping a coin that has probablility p of coming up heads.</b> 
+<b>//We keeping flipping until we get a "tails" or until the maximum number of levels is reached:</b>
 	int random_level()
 	{
 		int new_Level=1;
