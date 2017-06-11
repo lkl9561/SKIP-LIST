@@ -76,14 +76,13 @@ Skip lists are also very space efficient.
  <h2>MAIN IMPLEMENTATION: </h2>
 <p>What would happen if levels of nodes were chosen randomly but in same proportions (percentage) discussed above like eg (e).
 In (e) a node’s ith forward pointer instead of pointing 2<sup>i-1</sup> nodes ahead , points to next node of level i or higher.
-Insertion and deletion would require only local modification;the level of node is chosen randomly when node is inserted and never change
-    </p>   
-
+Insertion and deletion would require only local modification; the level of node is chosen randomly when node is inserted and never change.
+</p>   
 <p>
 Each element is represented by a node having key value pair,the level of which is chosen at random when the node is inserted without
 regard for number of elements in it. Level i means i forward pointers(1 to i). We do not need to store the level of node in the node.
 MAX_LEVEL variable represents max level permitted. The level variable represents the current max level in the list or 1 if the list is 	empty.
- The header of list has forward pointers at levels 1 to MAX_LEVEL. Forward pointers of header above current maximum level of list points to NIL.
+The header of list has forward pointers at levels 1 to MAX_LEVEL. Forward pointers of header above current maximum level of list points to NIL.
 </p>
 
 <p>
@@ -166,6 +165,14 @@ of node that contains that searched element(if it is present).
 </pre>
 
 <h3>Randomisation</h3>
+<p>
+The implementation which we discussed for fast searching (not for insertion and deletion, that 2<sup>ith</sup> node
+has pointer 2<sup>ith</sup> nodes ahead), here probabililistic distribution is such that among nodes that have level i pointer 
+ half of them also have level i+1 pointers.
+ In main implementation we define <b>fraction p</b> as fraction of nodes with level i pointers also have level i+1 pointers.(in above discussion p=0.5). 
+ Level for node is generated randomly using below algorithm and i<sup>th</sup> forward pointer points to next node of level same or higher. 
+Levels are generated without reference to number of elements in the list. 
+</p><br>
 <pre>
 <b>//A level is chosen for an element in effect by flipping a coin that has probablility p of coming up heads.</b> 
 <b>//We keeping flipping until we get a "tails" or until the maximum number of levels is reached:</b>
@@ -173,6 +180,8 @@ of node that contains that searched element(if it is present).
 	int <b>random_level</b>()
 	{
 		int new_Level=1;
+		<b>//rand() generates random value between [0,1)</b>
+		<b>//when rand() > p means we get tail.</b>
 		while(rand() < p && new_Level < MAX_LEVEL)
 			new_Level++;
 		return new_Level;
