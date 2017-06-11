@@ -62,7 +62,7 @@ Skip lists are also very space efficient.
       (every 2<sup>nd</sup> node has pointer 2 nodes ahead; every 4<sup>th</sup> node has pointer 4 nodes ahead and so on.) 
       and i<sup>th</sup> forward pointer of node points to 2<sup>i-1</sup> nodes ahead.</li> 
       </ul>   
-<h4>ABOVE IMPLEMENTATION SHOULD BE USED WHEN ONLY FAST SEARCHING IS TO BE DONE.(NO INSERTION OR DELETION)	</h4>
+<h4>ABOVE IMPLEMENTATION SHOULD BE USED WHEN ONLY FAST SEARCHING IS TO BE DONE WHEN ALL ELEMENTS ARE PRESENT.(NO INSERTION OR DELETION)	</h4>
  
     <img src="images/1.png" alt="hiii" class="inline"/>
     <center>Fig 1</center>
@@ -80,9 +80,10 @@ Insertion and deletion would require only local modification;the level of node i
     </p>   
 
 <p>
-each element is represented by a node having key value pair,the level of which is chosen at random when the node is inserted without
-regard for number of elements in it.level i means i forward pointers(1 to i).We do not need to store the level of node in the node.
-MAX_LEVEL variable represents max level permitted. The level variable represents the current max level in the list or 1 if the list is 	empty. the header of list has forward pointers at levels 1 to MAX_LEVEL. Forward pointers of header above current maximum level of lists 	point to NIL.
+Each element is represented by a node having key value pair,the level of which is chosen at random when the node is inserted without
+regard for number of elements in it. Level i means i forward pointers(1 to i). We do not need to store the level of node in the node.
+MAX_LEVEL variable represents max level permitted. The level variable represents the current max level in the list or 1 if the list is 	empty.
+ The header of list has forward pointers at levels 1 to MAX_LEVEL. Forward pointers of header above current maximum level of list points to NIL.
 </p>
 
 <p>
