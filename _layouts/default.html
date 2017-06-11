@@ -86,7 +86,7 @@ MAX_LEVEL variable represents max level permitted. The level variable represents
 </p>
 
 <p>
-	Understanding of NIL is very impotant
+	Understanding of NIL is very important.We will discuss some later.
 </p>
 
 <h3>Structure of node</h3>
@@ -104,13 +104,18 @@ MAX_LEVEL variable represents max level permitted. The level variable represents
 <pre>
 	typedef struct skiplist
 		{
-			int level;
-			int size;
-			struct node * header;
+			int level;//current max level
+			int size;//size of list
+			struct node * header;//points to 1 node
 		}skiplist;
 </pre>
-
+<img src="images/2.png" alt="hiii" class="inline"/><br>
+	  
 <h3>Initialisation</h3>
+<pr> Consider every node has 2 parts first key-value pair and second part is a pack of foorward pointers.forward is link between them.
+Our first node is special(header node) .It does not carry elements but it behaves as a starting point(only forward pointers no element) and
+end point which is NIL.This node is given value INT_MAX to differentiate from others and also helps in stopping while searching.
+</pr>		  
 <pre>
 	//only called once
 	skiplist * initialise(skiplist *list)
@@ -122,10 +127,10 @@ MAX_LEVEL variable represents max level permitted. The level variable represents
 
 		//forward is pointer to pack of pointers of diff levels 
 		for (int i = 0; i <= MAX_LEVEL; ++i)
-			header->forward[i]=list->header;
+			header->forward[i]=list->header;//because starting and end point are same.
 
-		list->level=1;
-		list->size=0;
+		list->level=1;//empty list has level 1
+		list->size=0;//initially list is empty
 
 		return list;
 	}
