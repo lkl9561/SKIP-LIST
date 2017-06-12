@@ -226,7 +226,8 @@ int <b>insert</b>(skiplist *list,int s_key, int s_value)
 	{
 		while(x->forward[i]->key < s_key)
 			x=x->forward[i];
-//here x-&gt;key &lt; s_key &lt;= x-&gt;forward[i]-&gt;key (judge x position)
+			
+<b>//here x-&gt;key &lt; s_key &lt;= x-&gt;forward[i]-&gt;key (judge x position)</b>
 		update[i]=x;
 	}
 	x=x->forward[1];
