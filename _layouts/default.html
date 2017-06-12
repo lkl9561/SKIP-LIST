@@ -169,11 +169,20 @@ node * <b>search</b>(skiplist * list,int s_key)
 The implementation which we discussed for fast searching (not for insertion and deletion, that 2<sup>ith</sup> node
 has pointer 2<sup>ith</sup> nodes ahead), here probabililistic distribution is such that among nodes that have level i pointer 
  half of them also have level i+1 pointers.<br><br>
- In main implementation we define <b>fraction p</b> as fraction of nodes with level i pointers also have level i+1 pointers.(in above discussion p=0.5). 
+ In main implementation we define <b>fraction p</b> as fraction of nodes with level i pointers also have level i+1 pointers.<b>(in above discussion p=0.5).</b> 
  Level for node is generated randomly using below algorithm and i<sup>th</sup> forward pointer points to next node of level same or higher. 
 Levels are generated without reference to number of elements in the list. 
-There are many other ways of randomisation, you can look into that on your on.
+There are many other ways of randomisation, you can look into that on your on.<br><br>
+Main question is by how using this function we are getting same proportion as discussed in ideal skiplist.??
+a node will have pointer 2 nodes ahead(level 2) with probability (.5) . Similarly level 3 pointer will have probability of <b>0.5*0.5 = 0.25</b> and so on forother levels.
+This all is true because we have taken p=0.5 .
 </p><br>
+<pre>
+  level 2      Tail (0.5)               50%
+  level 3      Head,Tail (0.25)         25%
+  level 4      Head,Head,Tail (0.125)   12.5%
+  and so on...
+</pre><br>
 <pre>
 # define MAX_LEVEL 6
 # define p .5
@@ -195,6 +204,17 @@ int <b>random_level</b>()
 
 
 <h3>Insertion</h3>
+<p>
+In insertion first step is to find that element(its position to be inserted). If element is present then change its value
+otherwise create a node and insert it. Here the most important element is Update attribute. If you are inserting new node(means node
+to be inserted is not already present) , Update stores the node which will be on left side of new node and would be pointing on new node after insertion.
+Update array index represents level number. New level of new node is given by random level function . Left side pointers of new node 
+can be adjusted by using update[i]->forward[i] because these will be the elements new node will be pointing to(try to visualise be seeing
+int the diagram. Update is filled while searching for the element. Now at the end by seeing the index as level number and update element as node
+you can update all pointers.
+
+</p>
+<br>
 <pre>
 int <b>insert</b>(skiplist *list,int s_key, int s_value)
 {
@@ -237,6 +257,13 @@ int <b>insert</b>(skiplist *list,int s_key, int s_value)
 </pre>
 
 <h3>Deletion</h3>
+<p>
+Here also first step is searching keeping an update array same as insertion(see insertion). Just remember 2 things here. For a 
+particular node if certain level forward pointer dose not points to a specific node then its higher level forward pointers will 
+also not point to that node that why we started with 1 and used break in below code while updating. Secondly at the end dont forget
+to update the level beacuse may be we have deleted the node which had the highest current level.
+</p>
+<br>
 <pre>
 int <b>delete</b>(skiplist * list ,int s_key)
 {
