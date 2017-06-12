@@ -62,7 +62,7 @@ Skip lists are also very space efficient.
       (every 2<sup>nd</sup> node has pointer 2 nodes ahead; every 4<sup>th</sup> node has pointer 4 nodes ahead and so on.) 
       and i<sup>th</sup> forward pointer of node points to 2<sup>i-1</sup> nodes ahead.</li> 
       </ul>   
-<h4>ABOVE IMPLEMENTATION SHOULD BE USED WHEN ONLY FAST SEARCHING IS TO BE DONE WHEN ALL ELEMENTS ARE PRESENT.(NO INSERTION OR DELETION)	</h4>
+<h4>ABOVE IMPLEMENTATION IS IDEAL IMPLEMENTATION OF SKIPLIST AND SHOULD BE USED WHEN ONLY FAST SEARCHING IS TO BE DONE WHEN ALL ELEMENTS ARE PRESENT.(NO INSERTION OR DELETION ,because for 1 insertion and deletion many pointers have to be changed)</h4>
  
     <img src="images/1.png" alt="hiii" class="inline"/>
     <center>Fig 1</center>
@@ -76,7 +76,7 @@ Skip lists are also very space efficient.
  <h2>MAIN IMPLEMENTATION: </h2>
 <p>What would happen if levels of nodes were chosen randomly but in same proportions (percentage) discussed above like eg (e).
 In (e) a node’s ith forward pointer instead of pointing 2<sup>i-1</sup> nodes ahead , points to next node of level i or higher.
-Insertion and deletion would require only local modification; the level of node is chosen randomly when node is inserted and never change.
+	Insertion and deletion would require only <b>local modification (main difference from ideal skiplist)</b>; the level of node is chosen randomly when node is inserted and never change.
 </p>   
 <p>
 Each element is represented by a node having key value pair,the level of which is chosen at random when the node is inserted without
