@@ -222,9 +222,11 @@ int <b>insert</b>(skiplist *list,int s_key, int s_value)
 	int level;
 	node * update[MAX_LEVEL+1];
 	node * x=list->header;
-	for(int i=list->level; i>=1; i--){
+	for(int i=list->level; i>=1; i--)
+	{
 		while(x->forward[i]->key < s_key)
 			x=x->forward[i];
+//here x-&gt;key &lt; s_key &lt;= x-&gt;forward[i]-&gt;key (judge x position)
 		update[i]=x;
 	}
 	x=x->forward[1];
