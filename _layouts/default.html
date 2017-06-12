@@ -173,11 +173,12 @@ has pointer 2<sup>ith</sup> nodes ahead), here probabililistic distribution is s
  Level for node is generated randomly using below algorithm and i<sup>th</sup> forward pointer points to next node of level same or higher. 
 Levels are generated without reference to number of elements in the list. 
 There are many other ways of randomisation, you can look into that on your on.<br><br>
-Main question is by how using this function we are getting same proportion as discussed in ideal skiplist.??
-a node will have pointer 2 nodes ahead(level 2) with probability (.5) . Similarly level 3 pointer will have probability of <b>0.5*0.5 = 0.25</b> and so on forother levels.
+Main question is by how using this function we are getting same proportion as discussed in ideal skiplist.??<br>
+A node will have level 2 pointer with probability (.5) . Similarly level 3 pointer will have probability of <b>0.5*0.5 = 0.25</b> and so on forother levels.
 This all is true because we have taken p=0.5 .
 </p><br>
 <pre>
+same as ideal skiplist( one for fast searching not insertion,deletion )
   level 2      Tail (0.5)               50%
   level 3      Head,Tail (0.25)         25%
   level 4      Head,Head,Tail (0.125)   12.5%
