@@ -259,10 +259,11 @@ int <b>insert</b>(skiplist *list,int s_key, int s_value)
 
 <h3>Deletion</h3>
 <p>
-Here also first step is searching keeping an update array same as insertion(see insertion). Just remember 2 things here. For a 
-particular node if certain level forward pointer dose not points to a specific node then its higher level forward pointers will 
-also not point to that node that why we started with 1 and used break in below code while updating. Secondly at the end dont forget
-to update the level beacuse may be we have deleted the node which had the highest current level.
+Here also first step is searching keeping an update array same as insertion(see insertion). Just remember 2 things here.
+<ul>
+<li>For a particular node if certain level forward pointer dose not points to a specific node then its higher level forward pointers will 
+also not point to that node that why we started with 1 and used break in below code while updating.</li><li> Secondly at the end dont forget
+to update the level beacuse may be we have deleted the node which had the highest current level.</li></ul>
 </p>
 <br>
 <pre>
