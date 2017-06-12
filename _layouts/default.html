@@ -206,13 +206,13 @@ int <b>random_level</b>()
 
 <h3>Insertion</h3>
 <p>
-In insertion first step is to find that element(its position to be inserted). If element is present then change its value
-otherwise create a node and insert it. Here the most important element is Update attribute. If you are inserting new node(means node
-to be inserted is not already present) , Update stores the node which will be on left side of new node and would be pointing on new node after insertion.
-Update array index represents level number. New level of new node is given by random level function . Left side pointers of new node 
+<ul><li>In insertion first step is to find that element(its position to be inserted). If element is present then change its value
+otherwise create a node and insert it.</li><li> Here the most important element is Update attribute. If you are inserting new node(means node
+to be inserted is not already present) , Update stores the node which will be on left side of new node and would be pointing on new node after insertion.</li>
+<li>Update array index represents level number. New level of new node is given by random level function . Left side pointers of new node 
 can be adjusted by using update[i]->forward[i] because these will be the elements new node will be pointing to(try to visualise be seeing
-int the diagram. Update is filled while searching for the element. Now at the end by seeing the index as level number and update element as node
-you can update all pointers.
+int the diagram. Update is filled while searching for the element.</li><li> Now at the end by seeing the index as level number and update element as node
+you can update all pointers.</li></ul>
 
 </p>
 <br>
