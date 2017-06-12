@@ -179,10 +179,13 @@ This all is true because we have taken p=0.5 .</li></ul>
 </p><br>
 <pre>
 same as ideal skiplist( one for fast searching not insertion,deletion )
-  level 2      Tail (0.5)               50%
-  level 3      Head,Tail (0.25)         25%
-  level 4      Head,Head,Tail (0.125)   12.5%
+                                            proportion of elements
+  level 1      Tail(p=0.5)                    100%  (because level=1 will be returned in every case)
+  level 2      Head,Tail (0..25)              50%   (this case has .5*prob of previous case hence half proportion)
+  level 3      Head,Head,Tail (0.125)         25%    
+  level 4      Head,Head,Head,Tail (0.0625)   12.5%
   and so on...
+  we have maintained p=0.5
 </pre><br>
 <pre>
 # define MAX_LEVEL 6
