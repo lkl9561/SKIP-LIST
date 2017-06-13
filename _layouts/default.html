@@ -347,14 +347,16 @@ int <b>main</b>()
     return 0;
 }
 </pre>
-   <b>special case:</b>In a skip list of 16 elements with p=0.5, we might happen to have 9 elements with level 1, 
+
+<h3>Analysis of above algorithms</h3>
+   <b>special case:</b> In a skip list of 16 elements with p=0.5, we might happen to have 9 elements with level 1, 
    3 elements with level 2, 3 elements of level 3 and 1 element of level 14.(very unlikely).
    How do we handle this case. If we follow standard algorithm and start search at level 14,
    we will do a lot of useless work.<br><br>
 
 <h4>Now question arises at what level we should start searching ??</h4>
 Ideally we should start searching at level L where we expect 1/p nodes (p=0.5 in our case) means L =log<sub>2</sub>n. So in our case L will be log<sub>2</sub>n. (because ideally last level will be log<sub>2</sub>n due to our proportions of different levels discussed earlier(50% level 1, 25% level 2, 12.5% level 3 qnd so on).
-
+<br><br>
 But we may deviate from ideal behaviour so how to handle this scenario??<br><br>
 <strong>First solution:</strong> follow standard algorithm which we discussed. We start search at highest level (here 14) in the list. Doing this only adds a constant in our expected search time and moreover this special case is very rare.
 <br><br>
