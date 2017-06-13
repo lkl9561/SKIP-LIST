@@ -359,11 +359,11 @@ Ideally we should start searching at level L where we expect 1/p nodes (p=0.5 in
 <br><br>
 But we may deviate from ideal behaviour so how to handle this scenario??<br><br>
 <b>First solution:</b> follow standard algorithm which we discussed. We start search at highest level (here 14) in the list. Doing this only adds a constant in our expected search time and moreover this special case is very rare.
-<br><br>
+<br>
 <b>Second solution:</b> Although an element can contain any number of pointers like here 14, we can choose to utilise only log<sub>2</sub>n levels. It will complicate algorithms and wont increase performance much.
-<br><br>
+<br>
 <b>Third solution:</b> If we generate random level greater then current level by more than 1 (not 1), we only take 1+ the current max level as the level of node. This works well but destroys our ability to analyze algorithms because the level of node is no longer completely random.
-<br><br>
+<br>
 
 <h4>DETERMINING MAX_LEVEL</h4>
 Since we can put safe limit at levels at L(n)=log<sub>2</sub>n we should choose MaxLevel= log<sub>2</sub>N.( n is current no of elements and N is upper bound on number of elements in list n&lt;=N ).If p=0.5, using MaxLevel = 16 is appropriate for skip list containing up to N=2<sup>16</sup> elements.
